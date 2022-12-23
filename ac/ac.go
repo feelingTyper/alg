@@ -6,7 +6,7 @@ import (
 
 type Node struct {
 	idx      int
-	fail     *Node // 当前节点下不存在匹配成功的下一个节点时所指向的以该节点为结尾的路径的最长后缀的末尾节点, 即 path[fail]是path[cur]的最长后缀, 这样当匹配到cur节点时，path[cur]上的模式串已经被找到，当cur.child[char](char是主串当前待匹配的字符)不存在时就要跳到path[fail]继续匹配fail.children[char]进行快速定位,无需回退主串.
+	fail     *Node
 	lengths  []int // 当前节点包含模式串的长度
 	children map[rune]*Node
 }
